@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formação Trader PRO com FLPE | Engenharia da Consistência</title>
+    <meta name="description" content="Saia da Inconsistência e Aprenda a Ler o Mercado Como um Trader Profissional com Felipe Tagliaferro.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #22d3ee; /* Cyan 400 */
+            --primary-dark: #0891b2; /* Cyan 600 */
+            --accent: #10b981; /* Emerald 500 */
+            --dark-bg: #0a0a0a;
+            --card-bg: #171717;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Inter', sans-serif;
+            color: #f5f5f5;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* BANNER ANIMADO - CSS PURO */
+        #banner-container {
+            position: relative;
+            height: 450px;
+            width: 100%;
+            overflow: hidden;
+            background-color: #000;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .scene {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: bannerLoop 12s infinite;
+        }
+
+        #scene1 { animation-delay: 0s; }
+        #scene2 { animation-delay: 4s; }
+        #scene3 { animation-delay: 8s; }
+
+        @keyframes bannerLoop {
+            0%, 30% { opacity: 1; visibility: visible; z-index: 20; }
+            33.33%, 100% { opacity: 0; visibility: hidden; z-index: 10; }
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.4);
+        }
+
+        .glitch-text {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ESTILOS GERAIS */
+        .btn-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.4);
+        }
+
+        .bonus-card {
+            background: linear-gradient(145deg, #1e1e1e 0%, #121212 100%);
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+
+        .bonus-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .price-highlight {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(to bottom, #fff 0%, #999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .bg-grid {
+            background-image: radial-gradient(circle at 2px 2px, #333 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            color: #666;
+            transition: color 0.3s;
+        }
+        .payment-icon:hover { color: var(--primary); }
+
+        .guarantee-badge {
+            background: linear-gradient(135deg, #171717 0%, #0a0a0a 100%);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .timer-box {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff4444;
+        }
+
+        .module-card {
+            background: #111;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        .module-card:hover {
+            background: #1a1a1a;
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body class="bg-grid">
+
+    <!-- 
+        ==========================================================================
+        CONFIGURAÇÃO CENTRALIZADA DO LINK DE VENDAS
+        ==========================================================================
+        Altere o link abaixo para atualizar TODOS os botões da página de uma vez.
+    -->
+    <script>
+        const LINK_DE_VENDAS = "https://pay.hotmart.com/G105351940A?off=ptpqv4lj&bid=1776027410119";
+    </script>
+
+    <!-- BANNER ANIMADO -->
+    <div id="banner-container">
+        <div id="scene1" class="scene text-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10"></div>
+            <h1 class="text-4xl md:text-7xl font-black text-glow z-20 glitch-text uppercase tracking-tighter">DOMINE O MERCADO</h1>
+            <p class="text-xl mt-4 tracking-widest text-cyan-400 z-20 uppercase font-bold">MÉTODO FLPE TRADER</p>
+        </div>
+
+        <div id="scene2" class="scene bg-slate-900 text-center">
+            <div class="absolute inset-0 opacity-30">
+                <svg viewBox="0 0 800 400" class="w-full h-full">
+                    <path d="M0 300 L100 250 L200 280 L300 150 L400 180 L500 50 L600 120 L700 80 L800 20" fill="none" stroke="#22d3ee" stroke-width="4" />
+                </svg>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-black z-20 uppercase tracking-tighter">BRASIL & <span class="text-cyan-400">MUNDO</span></h1>
+            <p class="text-xl mt-4 z-20 uppercase tracking-widest font-bold">Mini Índice • Mini Dólar • Forex</p>
+        </div>
+
+        <div id="scene3" class="scene bg-black text-center">
+            <h1 class="text-3xl md:text-6xl font-black leading-tight uppercase tracking-tighter">PRONTO PARA O <br><span class="text-green-500">PRÓXIMO NÍVEL?</span></h1>
+            <a href="#" class="cta-link mt-8 px-8 py-4 bg-white text-black font-bold text-2xl rounded-full animate-bounce uppercase block hover:bg-cyan-400 transition-colors">
+                QUERO ME TORNAR CONSISTENTE
+            </a>
+        </div>
+    </div>
+
+    <!-- Header / Hero Section (SOLUÇÃO) -->
+    <header class="relative min-h-[70vh] flex items-center justify-center overflow-hidden px-4 py-20 bg-black">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-cyan-900/20 via-black to-black"></div>
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        </div>
+
+        <div class="container mx-auto relative z-10 text-center max-w-5xl">
+            <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-bold tracking-widest mb-6 uppercase">
+                Engenharia da Consistência no Day Trade
+            </span>
+            <h1 class="text-4xl md:text-7xl font-black leading-tight mb-6 text-glow uppercase">
+                Saia da Inconsistência e Aprenda a Ler o Mercado Como um Trader Profissional
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Aprenda a pensar como um trader consistente, desenvolver leitura de contexto e executar com mais segurança, precisão e confiança. Aumente a precisão utilizando correlações como <span class="text-white font-bold">EWZ e S&P 500</span>.
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#" class="cta-link btn-gradient px-10 py-5 rounded-xl text-black font-black text-xl md:text-2xl uppercase tracking-tighter flex items-center gap-3">
+                    🔘 QUERO ME TORNAR CONSISTENTE
+                </a>
+            </div>
+            
+            <p class="mt-6 text-gray-500 text-sm flex items-center justify-center gap-2">
+                <i class="fas fa-shield-alt"></i> Pagamento 100% Seguro via Hotmart
+            </p>
+        </div>
+    </header>
+
+    <!-- Seção de Dor (DOR) -->
+    <section class="py-24 bg-black/50 border-y border-white/5">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 uppercase">Você se sente <span class="text-red-500">perdido</span> no meio do gráfico?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-left mb-12">
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 uppercase">Execução Hesitante</h3>
+                    <p class="text-gray-400">Você vê a oportunidade, mas o medo de errar trava o seu clique. Quando entra, já é tarde demais.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fas fa-random text-red-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 uppercase">Resultados Aleatórios</h3>
+                    <p class="text-gray-400">Um dia ganha muito, no outro devolve tudo. Falta um método que traga previsibilidade e calma.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fas fa-eye-slash text-red-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 uppercase">Falta de Contexto</h3>
+                    <p class="text-gray-400">Você opera indicadores isolados sem entender o que o "dinheiro grosso" está fazendo no EWZ e S&P 500.</p>
+                </div>
+            </div>
+            <div class="mt-12 p-6 rounded-2xl border-2 border-red-500/30 bg-red-500/5 inline-block">
+                <p class="text-2xl md:text-3xl font-black text-red-500 uppercase tracking-tight">
+                    O problema não é falta de estratégia… é falta de clareza na leitura.
+                </p>
+            </div>
+            <p class="mt-8 text-gray-400 text-xl italic">"Você não precisa de mais indicadores, precisa de clareza."</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO O QUE VOCÊ VAI CONQUISTAR -->
+    <section class="py-24 bg-black">
+        <div class="container mx-auto px-4 max-w-6xl text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-16 uppercase tracking-tighter">O que você vai <span class="text-cyan-400">conquistar</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 flex flex-col items-center">
+                    <i class="fas fa-bullseye text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Clareza na Leitura</h3>
+                    <p class="text-gray-400">Entenda exatamente o que o preço está fazendo e por que está fazendo.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 flex flex-col items-center">
+                    <i class="fas fa-bolt text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Execução sem Hesitação</h3>
+                    <p class="text-gray-400">Clique com confiança quando o seu gatilho aparecer, sem medo de errar.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 flex flex-col items-center">
+                    <i class="fas fa-shield-heart text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Confiança para Operar</h3>
+                    <p class="text-gray-400">Opere com a tranquilidade de quem tem um método validado e profissional.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 flex flex-col items-center">
+                    <i class="fas fa-chart-line text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Consistência Real</h3>
+                    <p class="text-gray-400">Pare de ganhar um dia e devolver no outro. Foque no longo prazo.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 flex flex-col items-center">
+                    <i class="fas fa-globe text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Leitura de Contexto</h3>
+                    <p class="text-gray-400">Domine as correlações globais que movem o mercado brasileiro.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 flex flex-col items-center">
+                    <i class="fas fa-user-graduate text-cyan-400 text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase">Evolução como Trader</h3>
+                    <p class="text-gray-400">Saia do amadorismo e entre para o grupo dos traders profissionais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO O QUE VOCÊ VAI APRENDER (MÓDULOS) -->
+    <section class="py-24 bg-zinc-900/30">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">O que você vai <span class="text-cyan-400">aprender</span></h2>
+                <p class="text-gray-400">Um passo a passo baseado no que realmente funciona no mercado.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 1</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">A Filosofia FLPE</h3>
+                    <p class="text-gray-500 text-sm">Da emoção ao processo: estabelecendo a mentalidade correta.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 2</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">O Cockpit de Tesouraria</h3>
+                    <p class="text-gray-500 text-sm">Preparação pré-mercado com Preço Justo e Desvios Institucionais.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 3</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">A Hierarquia Visual do "Z"</h3>
+                    <p class="text-gray-500 text-sm">Análise de gráfico limpo, estrutura e regiões de 15 minutos.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 4</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">Alinhamento Macro</h3>
+                    <p class="text-gray-500 text-sm">Correlações com IBOV, Curva de Juros, EWZ e SP500.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 5</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">O Motor Técnico</h3>
+                    <p class="text-gray-500 text-sm">Detalhamento dos indicadores FLPE e instalação completa.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 6</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">Gatilhos Ocultos (G.G.O.)</h3>
+                    <p class="text-gray-500 text-sm">Inside Candle de 4h, Regra dos 50% e FVGs.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 7</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">A Engenharia de Risco</h3>
+                    <p class="text-gray-500 text-sm">Régua de Risco FLPE, Protocolo QUICK e Trailing Stop.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 8</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">Plano de Trading</h3>
+                    <p class="text-gray-500 text-sm">O Placar (2x1), Limites Diários e Controle de DrawDown.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 9</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">Fluxograma de Guerra</h3>
+                    <p class="text-gray-500 text-sm">A sequência exata para a tomada de decisão profissional.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 10</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">Gestão Matematizada</h3>
+                    <p class="text-gray-500 text-sm">Vilões da mente, overtrade e rotina consistente.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 11</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">Operações Reais</h3>
+                    <p class="text-gray-500 text-sm">Análise de mentorias ao vivo e operações gravadas.</p>
+                </div>
+                <div class="module-card p-4 rounded-xl">
+                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Módulo 12</span>
+                    <h3 class="text-lg font-bold mt-1 uppercase">IA & Diário de Trade</h3>
+                    <p class="text-gray-500 text-sm">A importância do diário e o Plano de Consistência.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-gray-500 italic">"Sem fórmula mágica, apenas método e execução."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Solução Detalhada (SOLUÇÃO) -->
+    <section class="py-24">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-cyan-500/20 blur-3xl rounded-full"></div>
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800" alt="Formação Trader PRO" class="relative rounded-2xl border border-white/10 shadow-2xl floating">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight uppercase">O Caminho para a <br><span class="text-cyan-400">Leitura Profissional</span></h2>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        Com a <strong>Formação Trader PRO com FLPE</strong>, desenvolva uma leitura profissional de mercado, com foco em execução precisa e gestão real de risco. Aprenda a pensar como um trader consistente, desenvolver leitura de contexto e executar com mais segurança, precisão e confiança.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-cyan-400 mt-1"></i>
+                            <span>Engenharia da Consistência: Método baseado em dados e processos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-cyan-400 mt-1"></i>
+                            <span>Correlações Avançadas: Domine o EWZ e S&P 500 para antecipar movimentos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-cyan-400 mt-1"></i>
+                            <span>Gestão de Risco Real: Proteja seu capital como os grandes players.</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="cta-link btn-gradient inline-block px-8 py-4 rounded-xl text-black font-bold uppercase tracking-tight">
+                        QUERO ME TORNAR CONSISTENTE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Prova (PROVA) -->
+    <section class="py-24 bg-zinc-900/50">
+        <div class="container mx-auto px-4 max-w-6xl text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 uppercase">O que dizem os <span class="text-cyan-400">nossos alunos</span></h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-black/40 p-8 rounded-3xl border border-white/5 text-left relative overflow-hidden flex flex-col">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-quote-right text-6xl"></i>
+                    </div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-xl font-bold text-cyan-400">F</div>
+                        <div>
+                            <h4 class="font-bold text-lg">Fernando</h4>
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest">Aluno da Formação</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-6 flex-grow">
+                        "Desde que comecei a utilizar a ferramenta que você desenvolveu, minha forma de enxergar o mercado mudou completamente. O que antes parecia confuso e muitas vezes aleatório, hoje faz muito mais sentido graças à clareza da sua metodologia e à forma didática com que você transmite o conhecimento. Sem dúvida, houve uma grande evolução na minha análise gráfica, na minha tomada de decisão e principalmente na minha confiança ao operar."
+                    </p>
+                    <div class="flex text-yellow-500 gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="bg-black/40 p-8 rounded-3xl border border-white/5 text-left relative overflow-hidden flex flex-col">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-quote-right text-6xl"></i>
+                    </div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-xl font-bold text-cyan-400">N</div>
+                        <div>
+                            <h4 class="font-bold text-lg">Nelson</h4>
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest">Aluno da Formação</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-6 flex-grow">
+                        "Depois que comecei a seguir a operacional FLPE e as suas dicas de estruturas do preço, identificar quebra de estrutura e correlações, comecei a entender a dinâmica do preço. Seu operacional me trouxe clareza nas operações."
+                    </p>
+                    <div class="flex text-yellow-500 gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Bônus (PRESENTES) -->
+    <section class="py-24">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase">Presentes Exclusivos <span class="text-cyan-400">Inclusos</span></h2>
+                <p class="text-gray-400">Ao entrar hoje, você leva todo o ecossistema FLPE sem custo adicional.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
+                    <div class="w-24 h-24 mb-6 relative">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 uppercase">Plano Lite Euroinvest</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 489,20</p>
+                    <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
+                </div>
+
+                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
+                    <div class="w-24 h-24 mb-6 relative">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating" style="animation-delay: 0.2s">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 uppercase">Indicador Método FLPE</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 499,00</p>
+                    <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
+                </div>
+
+                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
+                    <div class="w-24 h-24 mb-6 relative">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating" style="animation-delay: 0.4s">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 uppercase">Regra FLPE_SMART_FLOW</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 249,00</p>
+                    <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
+                </div>
+
+                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
+                    <div class="w-24 h-24 mb-6 relative">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating" style="animation-delay: 0.6s">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 uppercase">E-BOOK Método Flpe</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 19,90</p>
+                    <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO "PARA QUEM NÃO É" -->
+    <section class="py-24 bg-zinc-900/30 border-y border-white/5">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter">Para quem <span class="text-red-500">NÃO</span> é</h2>
+            <div class="flex flex-col items-center gap-6">
+                <div class="flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 w-full max-w-md">
+                    <i class="fas fa-times-circle text-red-500 text-2xl"></i>
+                    <span class="text-xl font-semibold text-gray-300">Quem busca dinheiro rápido</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 w-full max-w-md">
+                    <i class="fas fa-times-circle text-red-500 text-2xl"></i>
+                    <span class="text-xl font-semibold text-gray-300">Quem não quer estudar</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 w-full max-w-md">
+                    <i class="fas fa-times-circle text-red-500 text-2xl"></i>
+                    <span class="text-xl font-semibold text-gray-300">Quem procura fórmula mágica</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO STACK DE VALOR -->
+    <section class="py-24 bg-black">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="bg-zinc-900/50 rounded-[3rem] p-8 md:p-12 border border-cyan-500/20">
+                <h2 class="text-2xl md:text-4xl font-black text-center mb-10 uppercase tracking-tighter">Tudo o que você vai receber:</h2>
+                <div class="space-y-4 mb-10">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-gray-300">Formação Completa Trader PRO</span>
+                        <span class="text-cyan-400 font-bold">R$ 997,00</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-gray-300">Indicador Método FLPE</span>
+                        <span class="text-cyan-400 font-bold">R$ 499,00</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-gray-300">Regra FLPE Smart Flow</span>
+                        <span class="text-cyan-400 font-bold">R$ 249,00</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-gray-300">Plano Lite Euroinvest</span>
+                        <span class="text-cyan-400 font-bold">R$ 489,20</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                        <span class="text-gray-300">E-book Método FLPE</span>
+                        <span class="text-cyan-400 font-bold">R$ 19,90</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-xl line-through mb-2">Valor total: R$ 2.254,10</p>
+                    <p class="text-white text-2xl font-bold uppercase tracking-widest mb-4">Mas você paga apenas:</p>
+                    <div class="text-cyan-400 font-black text-4xl md:text-5xl">
+                        12x R$ 186,16
+                    </div>
+                    <p class="text-gray-400 mt-2">ou R$ 1.799,99 à vista</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Oferta (OFERTA) -->
+    <section class="py-24 bg-gradient-to-b from-zinc-900 to-black border-t border-white/10">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4 uppercase tracking-widest text-glow">Oferta Especial de Lançamento</h2>
+            
+            <div class="mb-12 inline-block">
+                <p class="text-gray-400 mb-2 uppercase font-bold tracking-widest">Oferta encerra em poucos minutos</p>
+                <div id="timer" class="timer-box px-8 py-4 rounded-2xl text-4xl md:text-6xl font-black tracking-tighter">
+                    15:00
+                </div>
+            </div>
+
+            <p class="text-gray-400 mb-4">Tudo o que você precisa para a consistência por apenas:</p>
+            
+            <div class="mb-2">
+                <span class="text-gray-600 text-2xl line-through font-bold">De R$ 2.254,10</span>
+            </div>
+
+            <div class="mb-4">
+                <span class="text-cyan-400 font-bold text-xl uppercase tracking-tighter">Por apenas 12x de</span>
+                <div class="price-highlight leading-none">R$ 186,16</div>
+                <p class="text-gray-500 mt-4 text-lg">ou R$ 1.799,99 à vista</p>
+            </div>
+
+            <div class="mt-12">
+                <a href="#" class="cta-link btn-gradient w-full md:w-auto inline-block px-16 py-6 rounded-2xl text-black font-black text-2xl uppercase tracking-tighter shadow-2xl">
+                    QUERO ME TORNAR CONSISTENTE
+                </a>
+                <p class="mt-4 text-red-500 font-bold uppercase tracking-widest animate-pulse">
+                    ⚠️ Essa condição pode sair do ar a qualquer momento
+                </p>
+            </div>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-8 opacity-60">
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fab fa-cc-visa payment-icon"></i>
+                    <span class="text-[10px] uppercase tracking-widest">Visa</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fab fa-cc-mastercard payment-icon"></i>
+                    <span class="text-[10px] uppercase tracking-widest">Mastercard</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fas fa-qrcode payment-icon"></i>
+                    <span class="text-[10px] uppercase tracking-widest">Pix</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fas fa-barcode payment-icon"></i>
+                    <span class="text-[10px] uppercase tracking-widest">Boleto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do Autor (AUTOR) -->
+    <section class="py-24 bg-black">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="flex flex-col md:flex-row items-center gap-12 bg-zinc-900/30 p-8 md:p-16 rounded-[3rem] border border-white/5">
+                <div class="md:w-1/3">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-cyan-500/50 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663514818699/oVLdztGtfFSgvUIw.png" alt="Felipe Tagliaferro" class="relative rounded-2xl w-full grayscale hover:grayscale-0 transition duration-500 shadow-2xl block">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <span class="text-cyan-400 font-bold uppercase tracking-widest text-sm">Seu Mentor</span>
+                    <h2 class="text-4xl font-black mt-2 mb-6 uppercase">Felipe Tagliaferro <br><span class="text-gray-500 text-2xl font-normal">(Flpe Trader)</span></h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Descubra os segredos do mercado financeiro com um engenheiro e Black Belt em Six Sigma. Com experiência como trader de Mini Índice, ele foca na leitura de mercado, execução e análise de correlações entre ativos nacionais e internacionais.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Sua abordagem prática e realista mostra o que realmente funciona no dia a dia de um trader. Além disso, é um programador e desenvolvedor de indicadores e automações em NTSL, criando soluções próprias para performance, consistência e tomada de decisão no trading.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CTA FINAL "A DECISÃO É SUA" -->
+    <section class="py-24 bg-zinc-900/50 border-t border-white/5">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter">A decisão é sua</h2>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed">
+                O mercado não muda… quem precisa mudar é a forma como você enxerga ele.
+            </p>
+            <a href="#" class="cta-link btn-gradient inline-block px-16 py-6 rounded-2xl text-black font-black text-2xl uppercase tracking-tighter shadow-2xl">
+                QUERO ME TORNAR CONSISTENTE
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de Garantia -->
+    <section class="py-24 bg-black border-t border-white/5">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <div class="p-10 rounded-[3rem] guarantee-badge flex flex-col md:flex-row items-center gap-10">
+                <div class="w-40 h-40 flex-shrink-0">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2150/2150150.png" alt="Garantia" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left">
+                    <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tighter">Garantia Incondicional de 7 Dias</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Você tem 7 dias para testar todo o conteúdo. Se por qualquer motivo você achar que o curso não é para você, basta solicitar o reembolso e devolveremos 100% do seu investimento. Sem perguntas, sem burocracia. O risco é todo meu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center text-gray-600 text-sm">
+        <div class="container mx-auto px-4">
+            <p class="mb-4 uppercase tracking-widest font-bold">Formação Trader PRO com FLPE &copy; 2026</p>
+            <p class="max-w-2xl mx-auto">
+                Aviso Legal: Investimentos em renda variável envolvem riscos. Resultados passados não garantem lucros futuros. A disciplina e o gerenciamento de risco são fundamentais.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE FUNCIONALIDADES -->
+    <script>
+        // 1. ATUALIZAÇÃO AUTOMÁTICA DE TODOS OS LINKS
+        document.querySelectorAll('.cta-link').forEach(link => {
+            link.href = LINK_DE_VENDAS;
+        });
+
+        // 2. CRONÔMETRO DE URGÊNCIA
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    display.textContent = "Oferta encerrada";
+                    display.style.fontSize = "2rem";
+                }
+            }, 1000);
+        }
+
+        const display = document.querySelector('#timer');
+        if (display) {
+            startTimer(60 * 15, display);
+        }
+    </script>
+
+</body>
+</html>
