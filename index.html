@@ -28,6 +28,24 @@
             overflow-x: hidden;
         }
 
+        /* STICKY HEADER COMPACTO */
+        #sticky-header {
+            position: fixed;
+            top: -100px; /* Começa escondido */
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--primary-dark);
+            z-index: 1000;
+            transition: top 0.4s ease;
+            padding: 10px 0;
+        }
+
+        #sticky-header.visible {
+            top: 0;
+        }
+
         /* BANNER ANIMADO - CSS PURO */
         #banner-container {
             position: relative;
@@ -156,6 +174,22 @@
     <script>
         const LINK_DE_VENDAS = "https://pay.hotmart.com/G105351940A?off=ptpqv4lj&bid=1776027410119";
     </script>
+
+    <!-- STICKY HEADER (BARRA FIXA) -->
+    <div id="sticky-header">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-cyan-400 font-black text-xl tracking-tighter">FLPE TRADER</span>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <span class="text-xs text-gray-400 uppercase font-bold">Oferta encerra em:</span>
+                <span class="sticky-timer text-red-500 font-black text-xl">15:00</span>
+            </div>
+            <a href="#" class="cta-link btn-gradient px-4 py-2 rounded-lg text-black font-bold text-sm uppercase tracking-tight">
+                QUERO MINHA VAGA
+            </a>
+        </div>
+    </div>
 
     <!-- BANNER ANIMADO -->
     <div id="banner-container">
@@ -399,7 +433,8 @@
         <div class="container mx-auto px-4 max-w-6xl text-center">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 uppercase">O que dizem os <span class="text-cyan-400">nossos alunos</span></h2>
             
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- FERNANDO -->
                 <div class="bg-black/40 p-8 rounded-3xl border border-white/5 text-left relative overflow-hidden flex flex-col">
                     <div class="absolute top-0 right-0 p-4 opacity-10">
                         <i class="fas fa-quote-right text-6xl"></i>
@@ -412,13 +447,14 @@
                         </div>
                     </div>
                     <p class="text-gray-300 italic leading-relaxed mb-6 flex-grow">
-                        "Desde que comecei a utilizar a ferramenta que você desenvolveu, minha forma de enxergar o mercado mudou completamente. O que antes parecia confuso e muitas vezes aleatório, hoje faz muito mais sentido graças à clareza da sua metodologia e à forma didática com que você transmite o conhecimento. Sem dúvida, houve uma grande evolução na minha análise gráfica, na minha tomada de decisão e principalmente na minha confiança ao operar."
+                        "Desde que comecei a utilizar a ferramenta que você desenvolveu, minha forma de enxergar o mercado mudou completamente. O que antes parecia confuso e muitas vezes aleatório, hoje faz muito mais sentido graças à clareza da sua metodologia e à forma didática com que você transmite o conhecimento."
                     </p>
                     <div class="flex text-yellow-500 gap-1">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                 </div>
 
+                <!-- NELSON -->
                 <div class="bg-black/40 p-8 rounded-3xl border border-white/5 text-left relative overflow-hidden flex flex-col">
                     <div class="absolute top-0 right-0 p-4 opacity-10">
                         <i class="fas fa-quote-right text-6xl"></i>
@@ -432,6 +468,26 @@
                     </div>
                     <p class="text-gray-300 italic leading-relaxed mb-6 flex-grow">
                         "Depois que comecei a seguir a operacional FLPE e as suas dicas de estruturas do preço, identificar quebra de estrutura e correlações, comecei a entender a dinâmica do preço. Seu operacional me trouxe clareza nas operações."
+                    </p>
+                    <div class="flex text-yellow-500 gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- LEONARDO (NOVO) -->
+                <div class="bg-black/40 p-8 rounded-3xl border border-white/5 text-left relative overflow-hidden flex flex-col">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-quote-right text-6xl"></i>
+                    </div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-xl font-bold text-cyan-400">L</div>
+                        <div>
+                            <h4 class="font-bold text-lg">Leonardo</h4>
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest">Aluno da Formação</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-6 flex-grow">
+                        "Posso afirmar que após agregar esse conteúdo no meu operacional, melhorei muito e agora não fico trocando de operacional toda hora como fazia anteriormente. O conhecimento passado merece uma atenção especial, onde eu recomendo para todos."
                     </p>
                     <div class="flex text-yellow-500 gap-1">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -682,8 +738,8 @@
             link.href = LINK_DE_VENDAS;
         });
 
-        // 2. CRONÔMETRO DE URGÊNCIA
-        function startTimer(duration, display) {
+        // 2. CRONÔMETRO DE URGÊNCIA (Sincronizado entre as duas exibições)
+        function startTimer(duration, displays) {
             let timer = duration, minutes, seconds;
             const interval = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
@@ -692,20 +748,34 @@
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = minutes + ":" + seconds;
+                displays.forEach(display => {
+                    display.textContent = minutes + ":" + seconds;
+                });
 
                 if (--timer < 0) {
                     clearInterval(interval);
-                    display.textContent = "Oferta encerrada";
-                    display.style.fontSize = "2rem";
+                    displays.forEach(display => {
+                        display.textContent = "Oferta encerrada";
+                        display.style.fontSize = "1rem";
+                    });
                 }
             }, 1000);
         }
 
-        const display = document.querySelector('#timer');
-        if (display) {
-            startTimer(60 * 15, display);
+        const timerDisplays = document.querySelectorAll('#timer, .sticky-timer');
+        if (timerDisplays.length > 0) {
+            startTimer(60 * 15, timerDisplays);
         }
+
+        // 3. CONTROLE DO STICKY HEADER
+        const stickyHeader = document.getElementById('sticky-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                stickyHeader.classList.add('visible');
+            } else {
+                stickyHeader.classList.remove('visible');
+            }
+        });
     </script>
 
 </body>
