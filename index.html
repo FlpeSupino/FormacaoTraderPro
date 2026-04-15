@@ -161,6 +161,35 @@
             background: #1a1a1a;
             transform: translateX(10px);
         }
+
+        /* FAQ ACCORDION */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+            color: #9ca3af;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-grid">
@@ -474,7 +503,7 @@
                     </div>
                 </div>
 
-                <!-- LEONARDO (NOVO) -->
+                <!-- LEONARDO -->
                 <div class="bg-black/40 p-8 rounded-3xl border border-white/5 text-left relative overflow-hidden flex flex-col">
                     <div class="absolute top-0 right-0 p-4 opacity-10">
                         <i class="fas fa-quote-right text-6xl"></i>
@@ -506,39 +535,79 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
-                    <div class="w-24 h-24 mb-6 relative">
+                <!-- PLANO LITE EUROINVEST DETALHADO -->
+                <div class="bonus-card p-6 rounded-3xl text-center flex flex-col items-center border-cyan-500/40 border-2">
+                    <div class="w-20 h-20 mb-4 relative">
                         <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating">
                     </div>
                     <h3 class="font-bold text-lg mb-2 uppercase">Plano Lite Euroinvest</h3>
-                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 489,20</p>
+                    <div class="text-left w-full text-[10px] space-y-1 mb-4 text-gray-400 bg-black/30 p-3 rounded-xl border border-white/5">
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> 5 Contratos</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Loss Total: R$ 1.500</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Meta Aprovação: R$ 1.000</p>
+                        <p class="text-white font-bold"><i class="fas fa-star text-yellow-500 mr-1"></i> NÃO TEMOS DRAWDOWN</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Repasse 100% (3 meses)</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Profit One/Rocket Grátis</p>
+                        <p class="text-cyan-400 font-bold"><i class="fas fa-gift mr-1"></i> R$ 137,70 Bônus CashBack Trade Arena (Conta Safe)</p>
+                    </div>
+                    <a href="https://euroinvest.com.br/wp-content/uploads/2026/03/REG_B3_2026.pdf?utm_source=Afliados&utm_medium=referral&utm_content=FelipeRosendoTagliaferro&utm_campaign=Perpetuo&src=9f3e0e7ef6be4876884cafef86e4378b&sck=1774454347896_177445444245113" target="_blank" class="text-[9px] text-cyan-400 hover:underline mb-4 block">
+                        <i class="fas fa-file-pdf mr-1"></i> Ler Regulamento Completo do Teste
+                    </a>
+                    <p class="text-gray-500 text-sm mb-2 line-through">R$ 489,00</p>
                     <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
                 </div>
 
-                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
-                    <div class="w-24 h-24 mb-6 relative">
+                <!-- INDICADOR MÉTODO FLPE DETALHADO -->
+                <div class="bonus-card p-6 rounded-3xl text-center flex flex-col items-center border-cyan-500/20 border">
+                    <div class="w-20 h-20 mb-4 relative">
                         <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating" style="animation-delay: 0.2s">
                     </div>
                     <h3 class="font-bold text-lg mb-2 uppercase">Indicador Método FLPE</h3>
-                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 499,00</p>
+                    <div class="text-left w-full text-[10px] space-y-1 mb-4 text-gray-400 bg-black/30 p-3 rounded-xl border border-white/5">
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Ecossistema Completo (ADX, VWAP, RSI)</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Algoritmo de Alta Precisão (NTSL)</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Arquivos de Configuração Prontos</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Tutorial de Instalação Passo a Passo</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Guia de Leitura de Sinais</p>
+                        <p class="text-white font-bold"><i class="fas fa-bolt text-yellow-500 mr-1"></i> Foco em Regiões Institucionais</p>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2 line-through">R$ 499,00</p>
                     <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
                 </div>
 
-                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
-                    <div class="w-24 h-24 mb-6 relative">
+                <!-- REGRA FLPE_SMART_FLOW DETALHADA -->
+                <div class="bonus-card p-6 rounded-3xl text-center flex flex-col items-center border-cyan-500/20 border">
+                    <div class="w-20 h-20 mb-4 relative">
                         <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating" style="animation-delay: 0.4s">
                     </div>
                     <h3 class="font-bold text-lg mb-2 uppercase">Regra FLPE_SMART_FLOW</h3>
-                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 249,00</p>
+                    <div class="text-left w-full text-[10px] space-y-1 mb-4 text-gray-400 bg-black/30 p-3 rounded-xl border border-white/5">
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Coloração Inteligente de Fluxo</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Identificação de Força Institucional</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Filtro de Exaustão e Absorção</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Manual de Gatilhos de Entrada</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Instalação Simplificada</p>
+                        <p class="text-white font-bold"><i class="fas fa-eye text-yellow-500 mr-1"></i> Evite Entradas Contra a Tendência</p>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2 line-through">R$ 249,00</p>
                     <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
                 </div>
 
-                <div class="bonus-card p-8 rounded-3xl text-center flex flex-col items-center">
-                    <div class="w-24 h-24 mb-6 relative">
+                <!-- E-BOOK MÉTODO FLPE DETALHADO -->
+                <div class="bonus-card p-6 rounded-3xl text-center flex flex-col items-center border-cyan-500/20 border">
+                    <div class="w-20 h-20 mb-4 relative">
                         <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" class="w-full h-full object-contain floating" style="animation-delay: 0.6s">
                     </div>
                     <h3 class="font-bold text-lg mb-2 uppercase">E-BOOK Método Flpe</h3>
-                    <p class="text-gray-500 text-sm mb-4 line-through">R$ 19,90</p>
+                    <div class="text-left w-full text-[10px] space-y-1 mb-4 text-gray-400 bg-black/30 p-3 rounded-xl border border-white/5">
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Guia da Engenharia da Consistência</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Detalhamento das Análises em Z</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Conteúdo Extra do Operacional</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Checklist de Pré-Mercado</p>
+                        <p><i class="fas fa-check text-cyan-400 mr-1"></i> Mapa Mental de Tomada de Decisão</p>
+                        <p class="text-white font-bold"><i class="fas fa-book-open text-yellow-500 mr-1"></i> O Mapa para Nunca Mais Hesitar</p>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-2 line-through">R$ 19,90</p>
                     <span class="mt-auto px-4 py-1 rounded-full bg-green-500/20 text-green-400 font-bold text-xs uppercase">Grátis</span>
                 </div>
             </div>
@@ -586,7 +655,7 @@
                     </div>
                     <div class="flex justify-between items-center border-b border-white/5 pb-2">
                         <span class="text-gray-300">Plano Lite Euroinvest</span>
-                        <span class="text-cyan-400 font-bold">R$ 489,20</span>
+                        <span class="text-cyan-400 font-bold">R$ 489,00</span>
                     </div>
                     <div class="flex justify-between items-center border-b border-white/5 pb-2">
                         <span class="text-gray-300">E-book Método FLPE</span>
@@ -594,7 +663,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <p class="text-gray-500 text-xl line-through mb-2">Valor total: R$ 2.254,10</p>
+                    <p class="text-gray-500 text-xl line-through mb-2">Valor total: R$ 2.253,90</p>
                     <p class="text-white text-2xl font-bold uppercase tracking-widest mb-4">Mas você paga apenas:</p>
                     <div class="text-cyan-400 font-black text-4xl md:text-5xl">
                         12x R$ 186,16
@@ -620,7 +689,7 @@
             <p class="text-gray-400 mb-4">Tudo o que você precisa para a consistência por apenas:</p>
             
             <div class="mb-2">
-                <span class="text-gray-600 text-2xl line-through font-bold">De R$ 2.254,10</span>
+                <span class="text-gray-600 text-2xl line-through font-bold">De R$ 2.253,90</span>
             </div>
 
             <div class="mb-4">
@@ -704,6 +773,149 @@
         </div>
     </section>
 
+    <!-- SEÇÃO FAQ (PERGUNTAS FREQUENTES) -->
+    <section class="py-24 bg-black border-t border-white/5">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">Dúvidas <span class="text-cyan-400">Frequentes</span></h2>
+                <p class="text-gray-400">Tudo o que você precisa saber antes de entrar para o time.</p>
+            </div>
+
+            <div class="space-y-2">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>O que é a Formação Trader PRO?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>É um curso completo que ensina técnicas avançadas para operar no mercado de índice e dólar futuro, desenvolvido por Felipe Tagliaferro com base em anos de experiência real de mercado.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>A formação é exclusiva para índices futuros?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não. Embora o foco principal seja em índices e dólar, todo o conceito de leitura de contexto, estrutura de preço e correlações ministrado pode ser replicado em todos os outros mercados (Ações, Forex, Cripto, etc).</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Quem deve fazer este curso?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Qualquer pessoa interessada em trading, seja iniciante ou experiente, que deseja aprender estratégias eficazes e profissionais para aumentar seus ganhos e parar de perder dinheiro por falta de método.</p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Preciso de experiência prévia?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não. O curso é desenhado para atender tanto iniciantes (do zero) quanto traders mais experientes que ainda não alcançaram a consistência desejada.</p>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Como é o acesso ao curso?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O curso é totalmente online, acessível de qualquer lugar e a qualquer hora através de nossa plataforma exclusiva na Hotmart. Você pode assistir pelo computador, tablet ou celular.</p>
+                    </div>
+                </div>
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>O que inclui o material didático?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você terá acesso a apostilas detalhadas, vídeos explicativos de alta qualidade, indicadores exclusivos e recursos adicionais para suportar todo o seu aprendizado.</p>
+                    </div>
+                </div>
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Qual é a duração do curso?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O curso é projetado para ser completado no seu próprio ritmo. A maioria dos alunos completa a base teórica em algumas semanas, mas o acesso é vitalício para você revisar sempre que precisar.</p>
+                    </div>
+                </div>
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Há suporte durante o curso?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Oferecemos suporte contínuo através de nosso time técnico, área de membros e também através de nossa Sala ao Vivo na comunidade de traders.</p>
+                    </div>
+                </div>
+                <!-- FAQ 9 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Posso operar com capital da empresa?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Após passar no teste para a mesa proprietária Euroinvest, você terá a oportunidade de operar com o capital deles, o que te isenta do risco de perder seu próprio dinheiro.</p>
+                    </div>
+                </div>
+                <!-- FAQ 10 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>O curso oferece certificado?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, todos os alunos que completam todos os módulos recebem um certificado de conclusão oficial da Formação Trader PRO.</p>
+                    </div>
+                </div>
+                <!-- FAQ 11 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>O acesso é vitalício?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Você terá acesso vitalício ao curso, incluindo todas as atualizações futuras que houverem após a sua compra, sem pagar nada a mais por isso.</p>
+                    </div>
+                </div>
+                <!-- FAQ 12 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Existe uma comunidade?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Dentro da plataforma existe uma comunidade exclusiva para alunos, além do nosso grupo VIP no Telegram para troca de experiências e análises diárias.</p>
+                    </div>
+                </div>
+                <!-- FAQ 13 -->
+                <div class="faq-item">
+                    <div class="faq-question py-6 flex justify-between items-center font-bold text-lg md:text-xl uppercase tracking-tight">
+                        <span>Como posso me inscrever?</span>
+                        <i class="fas fa-chevron-down faq-icon text-cyan-400"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Basta clicar em qualquer botão "QUERO ME TORNAR CONSISTENTE" nesta página para ser direcionado ao checkout seguro da Hotmart e garantir sua vaga imediatamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Seção de Garantia -->
     <section class="py-24 bg-black border-t border-white/5">
         <div class="container mx-auto px-4 max-w-4xl text-center">
@@ -775,6 +987,24 @@
             } else {
                 stickyHeader.classList.remove('visible');
             }
+        });
+
+        // 4. FAQ ACCORDION LOGIC
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Fecha todos os outros
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Abre o atual se não estava aberto
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         });
     </script>
 
